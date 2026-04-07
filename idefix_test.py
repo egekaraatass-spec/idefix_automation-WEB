@@ -6,8 +6,8 @@ from pages.basket_page import BasketPage
 from pages.payment_page import PaymentPage
 
 
-TEST_EMAIL    = "egekaraatass@gmail.com"
-TEST_PASSWORD = "Gs123456!"
+TEST_EMAIL    = "EMAİL"
+TEST_PASSWORD = "PASSWORD!"
 
 def test_login_search_and_checkout(driver):
     
