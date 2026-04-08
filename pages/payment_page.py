@@ -19,7 +19,7 @@ class PaymentPage(BasePage):
     FINAL_PAY_BTN      = (By.XPATH, "//button[contains(normalize-space(), 'Onayla ve Bitir')]")
 
     def open_credit_card_section(self):
-        """Kredi Kartı / Banka Kartı ile Öde sekmesini açar."""
+        
         print("\n[DEBUG] Kredi Kartı ödeme alanı açılıyor...")
         try:
             time.sleep(4)
@@ -30,7 +30,7 @@ class PaymentPage(BasePage):
             print("[DEBUG]  Kredi kartı sekmesine başarıyla tıklandı.")
             time.sleep(2) 
             
-            # Formun görünmesi için hafif aşağı kaydır
+            
             self.driver.execute_script("window.scrollBy(0, 350);")
             time.sleep(1)
         except Exception as e:
@@ -39,7 +39,7 @@ class PaymentPage(BasePage):
             raise e
 
     def fill_fake_card_details(self):
-        """Kart bilgilerini doldurur."""
+        
         print("[DEBUG] Kart bilgileri giriliyor...")
         try:
             self.type_text(self.CARD_NUMBER_INPUT, "4545454545454545")
@@ -59,7 +59,7 @@ class PaymentPage(BasePage):
         """Sözleşmeleri onaylar ve Onayla ve Bitir butonuna basar."""
         print("[DEBUG] Sözleşmeler onaylanıp kasaya vuruluyor...")
         try:
-            # 3D Secure Tikle 
+            
             try:
                 secure_cb = self.wait.until(EC.presence_of_element_located(self.SECURE_3D_CHECKBOX))
                 self.driver.execute_script("arguments[0].click();", secure_cb)
@@ -69,7 +69,7 @@ class PaymentPage(BasePage):
 
             time.sleep(0.5)
 
-            # Ön Bilgilendirme / Sözleşme Tikla
+            
             try:
                 
                 REVERSE_TERMS_XPATH = "//button[contains(normalize-space(), 'Onayla ve Bitir')]/preceding::input[@type='checkbox'][1]"
