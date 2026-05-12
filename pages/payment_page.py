@@ -19,7 +19,7 @@ class PaymentPage(BasePage):
     FINAL_PAY_BTN      = (By.XPATH, "//button[contains(normalize-space(), 'Onayla ve Bitir')]")
 
     def open_credit_card_section(self):
-        """Kredi Kartı / Banka Kartı ile Öde sekmesini açar."""
+        
         print("\n[DEBUG] Kredi Kartı ödeme alanı açılıyor...")
         try:
             time.sleep(4)
@@ -39,7 +39,7 @@ class PaymentPage(BasePage):
             raise e
 
     def fill_fake_card_details(self):
-        """Kart bilgilerini doldurur."""
+        
         print("[DEBUG] Kart bilgileri giriliyor...")
         try:
             self.type_text(self.CARD_NUMBER_INPUT, "4545454545454545")
