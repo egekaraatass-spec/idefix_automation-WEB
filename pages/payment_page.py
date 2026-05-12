@@ -30,7 +30,7 @@ class PaymentPage(BasePage):
             print("[DEBUG]  Kredi kartı sekmesine başarıyla tıklandı.")
             time.sleep(2) 
             
-            # Formun görünmesi için hafif aşağı kaydır
+            
             self.driver.execute_script("window.scrollBy(0, 350);")
             time.sleep(1)
         except Exception as e:
@@ -59,7 +59,7 @@ class PaymentPage(BasePage):
         """Sözleşmeleri onaylar ve Onayla ve Bitir butonuna basar."""
         print("[DEBUG] Sözleşmeler onaylanıp kasaya vuruluyor...")
         try:
-            # 3D Secure Tikle 
+            
             try:
                 secure_cb = self.wait.until(EC.presence_of_element_located(self.SECURE_3D_CHECKBOX))
                 self.driver.execute_script("arguments[0].click();", secure_cb)
@@ -69,7 +69,7 @@ class PaymentPage(BasePage):
 
             time.sleep(0.5)
 
-            # Ön Bilgilendirme / Sözleşme Tikla
+            
             try:
                 
                 REVERSE_TERMS_XPATH = "//button[contains(normalize-space(), 'Onayla ve Bitir')]/preceding::input[@type='checkbox'][1]"
